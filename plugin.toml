@@ -1,0 +1,28 @@
+schema = "animus.plugin.v1"
+name = "animus-subject-markdown"
+version = "0.1.0"
+plugin_kind = "subject_backend"
+description = "Markdown-file subject backend (git-friendly, one .md per task)"
+
+[capabilities]
+streaming = true
+progress = false
+cancellation = false
+
+[binary]
+default = "animus-subject-markdown"
+
+[[env]]
+key = "ANIMUS_MARKDOWN_ROOT"
+description = "Root directory for subject markdown files (default: <project_root>/.animus/subjects)"
+required = false
+
+[[env]]
+key = "ANIMUS_MARKDOWN_KINDS"
+description = "Comma-separated subject kinds (default: task)"
+required = false
+
+[[env]]
+key = "ANIMUS_MARKDOWN_ID_PREFIX"
+description = "ID prefix used by this backend (default: markdown:)"
+required = false
