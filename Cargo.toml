@@ -1,6 +1,6 @@
 [package]
 name = "animus-subject-markdown"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 license = "MIT"
 description = "Markdown-file subject backend for Animus — git-friendly, one .md per task"
@@ -18,9 +18,9 @@ name = "animus-subject-markdown"
 path = "src/main.rs"
 
 [dependencies]
-animus-plugin-protocol  = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.2" }
-animus-subject-protocol = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.2" }
-animus-plugin-runtime   = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.2" }
+animus-plugin-protocol  = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
+animus-subject-protocol = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
+animus-plugin-runtime   = { git = "https://github.com/launchapp-dev/animus-protocol", tag = "v0.1.4" }
 
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "sync", "time"] }
 serde = { version = "1", features = ["derive"] }
