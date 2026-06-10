@@ -442,12 +442,30 @@ fn apply_patch(doc: &mut MarkdownDoc, patch: &SubjectPatch) {
         }
     }
     for (key, value) in &patch.custom {
-        if value.is_null() {
-            doc.frontmatter.custom_fields.remove(key);
-        } else {
-            doc.frontmatter
-                .custom_fields
-                .insert(key.clone(), value.clone());
+        match key.as_str() {
+            "native_status" => {
+                doc.frontmatter.native_status = match value {
+                    Value::Null => None,
+                    Value::String(s) => Some(s.clone()),
+                    other => Some(other.to_string()),
+                };
+            }
+            "dispatch_label" => {
+                doc.frontmatter.dispatch_label = match value {
+                    Value::Null => None,
+                    Value::String(s) => Some(s.clone()),
+                    other => Some(other.to_string()),
+                };
+            }
+            _ => {
+                if value.is_null() {
+                    doc.frontmatter.custom_fields.remove(key);
+                } else {
+                    doc.frontmatter
+                        .custom_fields
+                        .insert(key.clone(), value.clone());
+                }
+            }
         }
     }
     if let Some(comment) = &patch.comment {
